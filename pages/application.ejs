@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<title><%= title %></title>
+	</head>
+
+	<body>
+		<%- include('./partials/user-header') %> <% if (created) { %>
+
+		<div class="alert alert-success">
+			Ваша заявка отправлена, в ближайшее время наш сотрудник свяжется с вами!
+		</div>
+		<% } %> <% if (error) { %>
+		<div class="alert alert-danger">Ой, что-то пошло не так!</div>
+		<% } %>
+
+		<section class="h-100">
+			<div class="container py-5 h-100">
+				<% if (error) {%>
+				<div class="alert alert-danger"><%= error %></div>
+				<% } %>
+				<div
+					class="row d-flex justify-content-center align-items-center h-100 w-60"
+				>
+					<div class="col d-flex justify-content-center">
+						<div class="card card-registration my-4" style="width: 500px">
+							<form class="card-body p-md-5 text-black">
+								<h3 class="mb-5 text-uppercase text-center">Запись к врачу</h3>
+
+								<div class="form-outline mb-4">
+									<label class="form-label" for="userName">ФИО</label>
+									<input
+										type="text"
+										name="userName"
+										id="userName"
+										class="form-control form-control-lg"
+									/>
+								</div>
+
+								<div class="form-outline mb-4">
+									<label class="form-label" for="phoneNumber"
+										>Номер телефона</label
+									>
+									<input
+										type="tel"
+										name="phoneNumber"
+										id="phoneNumber"
+										class="form-control form-control-lg"
+									/>
+								</div>
+
+								<div class="form-outline mb-4">
+									<label class="form-label" for="message"
+										>Опишите вашу проблему</label
+									>
+									<textarea
+										name="message"
+										id="message"
+										class="form-control form-control-lg"
+									></textarea>
+								</div>
+								<div class="d-flex justify-content-center">
+									<button
+										type="button"
+										class="btn btn-light btn-outline-dark btn-lg ms-2"
+									>
+										Отправить
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="/handle-form.js"></script>
+	</body>
+</html>
